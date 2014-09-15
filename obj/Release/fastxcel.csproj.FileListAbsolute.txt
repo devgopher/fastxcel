@@ -1,0 +1,5 @@
+C:\Users\igor.evdokimov\YandexDisk\FastXcel\fastxcel\bin\Release\fastxcel.dll
+C:\Users\igor.evdokimov\YandexDisk\FastXcel\fastxcel\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\igor.evdokimov\YandexDisk\FastXcel\fastxcel\obj\Release\fastxcel.csprojResolveAssemblyReference.cache
+C:\Users\igor.evdokimov\YandexDisk\FastXcel\fastxcel\obj\Release\fastxcel.dll
+C:\Users\igor.evdokimov\YandexDisk\FastXcel\fastxcel\bin\Release\ICSharpCode.SharpZipLib.pdb

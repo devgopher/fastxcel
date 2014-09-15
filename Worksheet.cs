@@ -16,7 +16,7 @@ namespace fastxcel
 	public class Worksheet
 	{
 		public Dictionary<KeyValuePair<XmlNode, string>, KeyValuePair<string,string>> Contents { get; private set; }
-		KeyValuePair<KeyValuePair<XmlNode, string>, KeyValuePair<string,string>>[] tmp_cont_array;
+		KeyValuePair<KeyValuePair<XmlNode, string>, KeyValuePair<string,string>>[] tmp_cont_array = new KeyValuePair<KeyValuePair<XmlNode, string>, KeyValuePair<string, string>>[1048576];
 		
 		public string Name { get; private set; }
 		public string XmlPath { get; private set; }
@@ -25,6 +25,7 @@ namespace fastxcel
 		public short SheetId { get; private  set; }
 		private AmusingXml.XmlFun xml_fun;
 		private Dictionary<int, string> shared_strings;
+		private int excel_max_rows = 1048576;
 		XmlNode sheet_data = null;
 		
 		public Worksheet(Dictionary<int, string> _shared_strings)
@@ -70,10 +71,28 @@ namespace fastxcel
 			xml_fun.SaveDocument();
 		}
 		
+		
+		private int SortExcelCells(AmusingXml.ExtXmlNode el1,
+		                           AmusingXml.ExtXmlNode el2,
+		                           string attr_name) {
+			
+			string tmp_strg = el1.InnerNode.Attributes[attr_name].Value.ToString();
+			string cmp_strg = el2.InnerNode.Attributes[attr_name].Value.ToString();
+			
+			if ( tmp_strg.Length > cmp_strg.Length ) {
+				return 1;
+			} else if ( tmp_strg.Length < cmp_strg.Length ) {
+				return -1;
+			} else {
+				return tmp_strg.CompareTo(cmp_strg);
+			}
+
+		}
+		
 		public void Save() {
 			// Sort...
 			xml_fun.SortNodesByAttrIntValue("row", "r");
-			xml_fun.SortNodesByAttrValue("c", "r");
+			xml_fun.SortNodesByAttrValue("c", "r", SortExcelCells);
 			// Save...
 			xml_fun.SaveDocument(XmlPath);
 		}
@@ -106,7 +125,6 @@ namespace fastxcel
 			if ( fnd_elem != null ) {
 				fnd_elem.InnerXml = "<v>"+new_value+"</v>";
 			}
-			xml_fun.FillXmlElements( xml_fun.Document );
 		}
 		
 		private int FindNumberOfSharedString(string _value) {
@@ -118,73 +136,55 @@ namespace fastxcel
 		}
 		
 		private void SetTextContentsValue( string _search_term, string _value ) {
-			bool have_it = false;
 
-			// Looking for existant cells
-			for (int i = 0; i < tmp_cont_array.Length; ++i ) {
-				//Contents.
-				var cont = tmp_cont_array[i];
-
-				if ( cont.Key.Value == _search_term ) {
-					Contents.Remove(cont.Key); // deleting old values
-
-					int new_sh_string = GenNewSharedString(_value);
-					
-					cont = new KeyValuePair<KeyValuePair<XmlNode, string>, KeyValuePair<string, string>>(
-						cont.Key, new KeyValuePair<string,string>(cont.Value.Key,  new_sh_string.ToString())
-					);
-					
-					have_it = true;
-					Contents.Add(cont.Key, cont.Value); // Adding updated value
-					SetExistingCellValue(_search_term, new_sh_string.ToString());
-					
-					break;
-				}
-			}
+			XmlNode row_node = null;
+			int row_number = ExtractRowNumber( _search_term );
 			
-			// If we haven't found our cell => create new
-			if ( !have_it ) {
-				XmlNode row_node = null;
-				int row_number = ExtractRowNumber( _search_term );
-				
-				// check if this row already exists
-				Dictionary<string,string> chk_rows_attrs = new Dictionary<string, string>();
-				chk_rows_attrs["r"]= row_number.ToString();
-				XmlElement chk_row = xml_fun.FindFirstNode( "row", chk_rows_attrs );
-				
-				// If nothing was found - let's create new row
-				if ( chk_row == null  ) {
-					row_node = xml_fun.Document.CreateNode( XmlNodeType.Element, "", "row", null);
-					row_node.Attributes.Append(xml_fun.Document.CreateAttribute("r"));
-					row_node.Attributes["r"].Value = row_number.ToString(); // Row number
-				} else
-					row_node = chk_row;
-				
-				XmlNode cell_node = xml_fun.Document.CreateNode( XmlNodeType.Element, "", "c", null);
-				cell_node.Attributes.Append(xml_fun.Document.CreateAttribute("r"));
-				cell_node.Attributes.Append(xml_fun.Document.CreateAttribute("t"));
-				cell_node.Attributes["r"].Value =  _search_term;
-				cell_node.Attributes["t"].Value =  "s"; // shared_String
-				cell_node.InnerXml = cell_node.InnerXml.Replace("xmlns=\"\"", String.Empty); // xmlns=... необходимо удалить
-
-				int new_sh_string = GenNewSharedString(_value);
-				
-				cell_node.InnerXml = "<v>" + new_sh_string.ToString() + "</v>";
-				row_node.AppendChild( cell_node );
-				
-				row_node.InnerXml = row_node.InnerXml.Replace("xmlns=\"\"", String.Empty); // xmlns=... необходимо удалить
-				sheet_data.AppendChild( row_node );
-				sheet_data.InnerXml =  sheet_data.InnerXml.Replace("xmlns=\"\"", String.Empty); // xmlns=... необходимо удалить
-				
-				KeyValuePair<XmlNode, string> key_part = new KeyValuePair<XmlNode, string>(cell_node, _search_term);
-				KeyValuePair<string, string> value_part = new KeyValuePair<string, string>(String.Empty, _value);
-				
-				xml_fun.FillXmlElements( xml_fun.Document );
-				
-				Contents.Add( key_part, value_part );
-			}
 			
-			tmp_cont_array = Contents.ToArray();
+			// Delete old cell with same coordiantes
+			Dictionary<string, string> old_cell_attrs = new Dictionary<string, string>();
+			old_cell_attrs.Add("r", _search_term);
+			XmlNode old_cell_node = xml_fun.FindFirstNode( "c", old_cell_attrs);
+			if ( old_cell_node != null )
+				old_cell_node.ParentNode.RemoveChild(old_cell_node);
+			
+			
+			// check if this row already exists
+			Dictionary<string,string> chk_rows_attrs = new Dictionary<string, string>();
+			chk_rows_attrs["r"]= row_number.ToString();
+			XmlElement chk_row = xml_fun.FindFirstNode( "row", chk_rows_attrs );
+			
+			// If nothing was found - let's create new row
+			if ( chk_row == null  ) {
+				row_node = xml_fun.Document.CreateNode( XmlNodeType.Element, "", "row", null);
+				row_node.Attributes.Append(xml_fun.Document.CreateAttribute("r"));
+				row_node.Attributes["r"].Value = row_number.ToString(); // Row number
+			} else
+				row_node = chk_row;
+			
+			XmlNode cell_node = xml_fun.Document.CreateNode( XmlNodeType.Element, "", "c", null);
+			cell_node.Attributes.Append(xml_fun.Document.CreateAttribute("r"));
+			cell_node.Attributes.Append(xml_fun.Document.CreateAttribute("t"));
+			cell_node.Attributes["r"].Value =  _search_term;
+			cell_node.Attributes["t"].Value =  "s"; // shared_string
+			cell_node.InnerXml = cell_node.InnerXml.Replace("xmlns=\"\"", String.Empty); // xmlns=... need to be deleted
+
+			int new_sh_string = GenNewSharedString(_value);
+			
+			cell_node.InnerXml = "<v>" + new_sh_string.ToString() + "</v>";
+			row_node.AppendChild( cell_node );
+			
+			row_node.InnerXml = row_node.InnerXml.Replace("xmlns=\"\"", String.Empty); // xmlns=... need to be deleted
+			sheet_data.AppendChild( row_node );
+			sheet_data.InnerXml =  sheet_data.InnerXml.Replace("xmlns=\"\"", String.Empty); // xmlns=... need to be deleted
+			
+			KeyValuePair<XmlNode, string> key_part = new KeyValuePair<XmlNode, string>(cell_node, _search_term);
+			KeyValuePair<string, string> value_part = new KeyValuePair<string, string>(String.Empty, _value);
+			
+			xml_fun.FillXmlElements( xml_fun.Document );
+			
+			
+			Contents.Add( key_part, value_part );
 		}
 		
 		
@@ -250,13 +250,18 @@ namespace fastxcel
 		
 		public void SetTextCellValueForRange(string cells_range, string cells_value ) {
 			
-			List<string> cells = GetCellsInRange( cells_range );
+			List<string> cells = new List<string>();
+			cells = GetCellsInRange( cells_range );
+
 			int cnt_2 = (int)(Math.Truncate((double)(cells.Count()/2)));
 			int full_cnt = cells.Count();
 			for ( int i = 0; i <= cnt_2; ++i )  {
 				SetTextContentsValue( cells[i], cells_value );
-				SetTextContentsValue( cells[full_cnt-i-1], cells_value );
+				if ( cnt_2 > 0 )
+					SetTextContentsValue( cells[full_cnt-i-1], cells_value );
 			}
+			
+			//tmp_cont_array = Contents.ToArray();
 		}
 		
 		public void SetRandomCellValuesForRange(string cells_range ) {
@@ -267,7 +272,8 @@ namespace fastxcel
 			int full_cnt = cells.Count();
 			for ( int i = 0; i <= cnt_2; ++i )  {
 				SetTextContentsValue( cells[i], rand.Next().ToString() );
-				SetTextContentsValue( cells[full_cnt-i-1], rand.Next().ToString() );
+				if ( cnt_2 > 0 )
+					SetTextContentsValue( cells[full_cnt-i-1], rand.Next().ToString() );
 			}
 		}
 		
@@ -278,12 +284,18 @@ namespace fastxcel
 		/// <param name="range"></param>
 		/// <returns></returns>
 		private List<string> GetCellsInRange( string range ) {
-			string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			int alphabet_count = alphabet.Count();
-			int excel_max_rows = 65535;
 			List<string> ret = new List<string>();
 			
-			System.Text.RegularExpressions.Regex range_regex = new System.Text.RegularExpressions.Regex("([A-Z|^[0-9]]*)([0-9]*):([A-Z|^[0-9]]*)([0-9]*)");
+			if ( range.IndexOf(":") < 0 ) {
+				ret.Add(range);
+				return ret;
+			}
+
+
+			string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			int alphabet_count = alphabet.Count();
+			
+			System.Text.RegularExpressions.Regex range_regex = new System.Text.RegularExpressions.Regex("([A-Z]*)([0-9]*):([A-Z]*)([0-9]*)");
 			
 			System.Text.RegularExpressions.MatchCollection mtc = range_regex.Matches(range);
 
@@ -322,6 +334,8 @@ namespace fastxcel
 		{
 			List<XmlNode> cells = new List<XmlNode>();
 
+			//tmp_cont_array = new KeyValuePair<KeyValuePair<XmlNode, string>, KeyValuePair<string, string>>[1048576];
+			
 			foreach (XmlElement el in xml_fun.XmlElements) {
 				if (el.Name == "sheetData") {
 					sheet_data = el;
@@ -339,14 +353,24 @@ namespace fastxcel
 									if (value_node.Name == "v") {
 										if ( cell_node.Attributes["t"] != null ) {
 											if ( cell_node.Attributes["t"].Value == "s" ) {
-												Contents.Add(
+												
+												var kvp = new KeyValuePair<KeyValuePair<XmlNode, string>,  KeyValuePair<string, string>>(
 													new KeyValuePair<XmlNode, string>(cell_node,cell_node.Attributes["r"].Value),
 													new KeyValuePair<string, string>("s", value_node.InnerText));
+												
+												Contents.Add(kvp.Key, kvp.Value);
+												if (Contents.Count > tmp_cont_array.Length)
+													Array.Resize(ref tmp_cont_array, tmp_cont_array.Length+1);
+												//tmp_cont_array[Contents.Count-1] = kvp;
 											}
 										} else {
-											Contents.Add(
+											var kvp = new KeyValuePair<KeyValuePair<XmlNode, string>,  KeyValuePair<string, string>>(
 												new KeyValuePair<XmlNode, string>(cell_node,cell_node.Attributes["r"].Value),
 												new KeyValuePair<string, string>(String.Empty, value_node.InnerText));
+											Contents.Add(kvp.Key, kvp.Value);
+											if (Contents.Count > tmp_cont_array.Length)
+												Array.Resize(ref tmp_cont_array, tmp_cont_array.Length+1);
+											//tmp_cont_array[Contents.Count-1] = kvp;
 										}
 									}
 								}
@@ -355,7 +379,9 @@ namespace fastxcel
 					}
 				}
 				
-				tmp_cont_array = Contents.ToArray();
+				//if ( tmp_cont_array.Length > Contents.Count )
+				//	Array.Resize(ref tmp_cont_array, Contents.Count);
+				//tmp_cont_array = Contents.ToArray();
 				
 			}
 		}
