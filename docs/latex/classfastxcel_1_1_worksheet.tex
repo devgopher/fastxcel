@@ -1,0 +1,245 @@
+\hypertarget{classfastxcel_1_1_worksheet}{
+\section{fastxcel.Worksheet Class Reference}
+\label{classfastxcel_1_1_worksheet}\index{fastxcel::Worksheet@{fastxcel::Worksheet}}
+}
+
+
+Description of \hyperlink{classfastxcel_1_1_worksheet}{Worksheet}.  
+
+
+
+
+Collaboration diagram for fastxcel.Worksheet:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{classfastxcel_1_1_worksheet__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfastxcel_1_1_worksheet_aeca37b714419be22639de9af588aae68}{Worksheet} (Dictionary$<$ int, string $>$ \_\-shared\_\-strings)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_a47de2fd4d32338e441034f2cce1fa70d}{Load} (string xml\_\-path, Dictionary$<$ int, string $>$ shared\_\-strings)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_aa133a70afbdf63ee270c54adf74e08be}{Load} (XmlDocument xml\_\-sheet, Dictionary$<$ int, string $>$ shared\_\-strings)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_a6f709d58e6c6e69b9e92285e64bb7537}{Load} (string \_\-resource\_\-id, short \_\-sheet\_\-id, string name, string xml\_\-path, Dictionary$<$ int, string $>$ shared\_\-strings)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_a8d4ae885f06c8bd2eff1e567df430395}{Save} (string xml\_\-file\_\-path)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_a408e5140faee4aa42fef7b2d18aa8129}{Save} ()
+\item 
+int \hyperlink{classfastxcel_1_1_worksheet_a0f4be9f34872659f91ad529d3adbd99b}{GetNewSharedStringNumber} ()
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_a4715306fdd8f6c3a22a9e0e7bac6fbea}{SetDimensions} (string dims)
+\item 
+string \hyperlink{classfastxcel_1_1_worksheet_a65201aab04853470de5944ddbdcbc6d2}{GetDimensions} ()
+\item 
+string \hyperlink{classfastxcel_1_1_worksheet_a624099f4b412f91c1109849cd82b84c6}{GetCellValue} (string cell\_\-name)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_a4eefcdd5bed53bac52c10889f4f0a0b4}{SetTextCellValue} (string cell\_\-name, string cell\_\-value)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_add0092f67c545fc53d0684b4fc38052d}{SetTextCellValueForRange} (string cells\_\-range, string cells\_\-value)
+\item 
+void \hyperlink{classfastxcel_1_1_worksheet_ad8b9a225bf2773781bee8076af31c6ae}{SetRandomCellValuesForRange} (string cells\_\-range)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ KeyValuePair$<$ XmlNode, string $>$, KeyValuePair$<$ string, string $>$ $>$ \hyperlink{classfastxcel_1_1_worksheet_a77a5d8199e43fb67bae2d4e9aca2abe6}{Contents}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{classfastxcel_1_1_worksheet_a6c8e7de2303db0e0770ac05b0ad0bb1a}{Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{classfastxcel_1_1_worksheet_ab96ae7cff692cb6d855ff832b0cebb0f}{XmlPath}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+uint \hyperlink{classfastxcel_1_1_worksheet_a8630d6f3a0c29ad4ae7c7a158f419a02}{Number}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{classfastxcel_1_1_worksheet_a232d0b0bda13403f81bdcad654cf077e}{ResourceId}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+short \hyperlink{classfastxcel_1_1_worksheet_a0df0dd75430f0fc3528eb37d679b9a95}{SheetId}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Description of \hyperlink{classfastxcel_1_1_worksheet}{Worksheet}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classfastxcel_1_1_worksheet_aeca37b714419be22639de9af588aae68}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Worksheet@{Worksheet}}
+\index{Worksheet@{Worksheet}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Worksheet}]{\setlength{\rightskip}{0pt plus 5cm}fastxcel.Worksheet.Worksheet (
+\begin{DoxyParamCaption}
+\item[{Dictionary$<$ int, string $>$}]{ \_\-shared\_\-strings}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_aeca37b714419be22639de9af588aae68}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classfastxcel_1_1_worksheet_a624099f4b412f91c1109849cd82b84c6}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!GetCellValue@{GetCellValue}}
+\index{GetCellValue@{GetCellValue}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{GetCellValue}]{\setlength{\rightskip}{0pt plus 5cm}string fastxcel.Worksheet.GetCellValue (
+\begin{DoxyParamCaption}
+\item[{string}]{ cell\_\-name}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a624099f4b412f91c1109849cd82b84c6}
+\hypertarget{classfastxcel_1_1_worksheet_a65201aab04853470de5944ddbdcbc6d2}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!GetDimensions@{GetDimensions}}
+\index{GetDimensions@{GetDimensions}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{GetDimensions}]{\setlength{\rightskip}{0pt plus 5cm}string fastxcel.Worksheet.GetDimensions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a65201aab04853470de5944ddbdcbc6d2}
+\hypertarget{classfastxcel_1_1_worksheet_a0f4be9f34872659f91ad529d3adbd99b}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!GetNewSharedStringNumber@{GetNewSharedStringNumber}}
+\index{GetNewSharedStringNumber@{GetNewSharedStringNumber}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{GetNewSharedStringNumber}]{\setlength{\rightskip}{0pt plus 5cm}int fastxcel.Worksheet.GetNewSharedStringNumber (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a0f4be9f34872659f91ad529d3adbd99b}
+\hypertarget{classfastxcel_1_1_worksheet_aa133a70afbdf63ee270c54adf74e08be}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Load@{Load}}
+\index{Load@{Load}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Load}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.Load (
+\begin{DoxyParamCaption}
+\item[{XmlDocument}]{ xml\_\-sheet, }
+\item[{Dictionary$<$ int, string $>$}]{ shared\_\-strings}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_aa133a70afbdf63ee270c54adf74e08be}
+\hypertarget{classfastxcel_1_1_worksheet_a47de2fd4d32338e441034f2cce1fa70d}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Load@{Load}}
+\index{Load@{Load}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Load}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.Load (
+\begin{DoxyParamCaption}
+\item[{string}]{ xml\_\-path, }
+\item[{Dictionary$<$ int, string $>$}]{ shared\_\-strings}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a47de2fd4d32338e441034f2cce1fa70d}
+\hypertarget{classfastxcel_1_1_worksheet_a6f709d58e6c6e69b9e92285e64bb7537}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Load@{Load}}
+\index{Load@{Load}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Load}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.Load (
+\begin{DoxyParamCaption}
+\item[{string}]{ \_\-resource\_\-id, }
+\item[{short}]{ \_\-sheet\_\-id, }
+\item[{string}]{ name, }
+\item[{string}]{ xml\_\-path, }
+\item[{Dictionary$<$ int, string $>$}]{ shared\_\-strings}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a6f709d58e6c6e69b9e92285e64bb7537}
+\hypertarget{classfastxcel_1_1_worksheet_a8d4ae885f06c8bd2eff1e567df430395}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Save@{Save}}
+\index{Save@{Save}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Save}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.Save (
+\begin{DoxyParamCaption}
+\item[{string}]{ xml\_\-file\_\-path}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a8d4ae885f06c8bd2eff1e567df430395}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=374pt]{classfastxcel_1_1_worksheet_a8d4ae885f06c8bd2eff1e567df430395_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classfastxcel_1_1_worksheet_a408e5140faee4aa42fef7b2d18aa8129}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Save@{Save}}
+\index{Save@{Save}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Save}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.Save (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a408e5140faee4aa42fef7b2d18aa8129}
+\hypertarget{classfastxcel_1_1_worksheet_a4715306fdd8f6c3a22a9e0e7bac6fbea}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!SetDimensions@{SetDimensions}}
+\index{SetDimensions@{SetDimensions}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{SetDimensions}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.SetDimensions (
+\begin{DoxyParamCaption}
+\item[{string}]{ dims}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a4715306fdd8f6c3a22a9e0e7bac6fbea}
+\hypertarget{classfastxcel_1_1_worksheet_ad8b9a225bf2773781bee8076af31c6ae}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!SetRandomCellValuesForRange@{SetRandomCellValuesForRange}}
+\index{SetRandomCellValuesForRange@{SetRandomCellValuesForRange}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{SetRandomCellValuesForRange}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.SetRandomCellValuesForRange (
+\begin{DoxyParamCaption}
+\item[{string}]{ cells\_\-range}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_ad8b9a225bf2773781bee8076af31c6ae}
+\hypertarget{classfastxcel_1_1_worksheet_a4eefcdd5bed53bac52c10889f4f0a0b4}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!SetTextCellValue@{SetTextCellValue}}
+\index{SetTextCellValue@{SetTextCellValue}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{SetTextCellValue}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.SetTextCellValue (
+\begin{DoxyParamCaption}
+\item[{string}]{ cell\_\-name, }
+\item[{string}]{ cell\_\-value}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_a4eefcdd5bed53bac52c10889f4f0a0b4}
+\hypertarget{classfastxcel_1_1_worksheet_add0092f67c545fc53d0684b4fc38052d}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!SetTextCellValueForRange@{SetTextCellValueForRange}}
+\index{SetTextCellValueForRange@{SetTextCellValueForRange}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{SetTextCellValueForRange}]{\setlength{\rightskip}{0pt plus 5cm}void fastxcel.Worksheet.SetTextCellValueForRange (
+\begin{DoxyParamCaption}
+\item[{string}]{ cells\_\-range, }
+\item[{string}]{ cells\_\-value}
+\end{DoxyParamCaption}
+)}}
+\label{classfastxcel_1_1_worksheet_add0092f67c545fc53d0684b4fc38052d}
+
+
+\subsection{Property Documentation}
+\hypertarget{classfastxcel_1_1_worksheet_a77a5d8199e43fb67bae2d4e9aca2abe6}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Contents@{Contents}}
+\index{Contents@{Contents}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Contents}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$KeyValuePair$<$XmlNode, string$>$, KeyValuePair$<$string,string$>$ $>$ fastxcel.Worksheet.Contents\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}}
+\label{classfastxcel_1_1_worksheet_a77a5d8199e43fb67bae2d4e9aca2abe6}
+\hypertarget{classfastxcel_1_1_worksheet_a6c8e7de2303db0e0770ac05b0ad0bb1a}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Name@{Name}}
+\index{Name@{Name}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Name}]{\setlength{\rightskip}{0pt plus 5cm}string fastxcel.Worksheet.Name\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}}
+\label{classfastxcel_1_1_worksheet_a6c8e7de2303db0e0770ac05b0ad0bb1a}
+\hypertarget{classfastxcel_1_1_worksheet_a8630d6f3a0c29ad4ae7c7a158f419a02}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!Number@{Number}}
+\index{Number@{Number}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{Number}]{\setlength{\rightskip}{0pt plus 5cm}uint fastxcel.Worksheet.Number\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}}
+\label{classfastxcel_1_1_worksheet_a8630d6f3a0c29ad4ae7c7a158f419a02}
+\hypertarget{classfastxcel_1_1_worksheet_a232d0b0bda13403f81bdcad654cf077e}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!ResourceId@{ResourceId}}
+\index{ResourceId@{ResourceId}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{ResourceId}]{\setlength{\rightskip}{0pt plus 5cm}string fastxcel.Worksheet.ResourceId\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}}
+\label{classfastxcel_1_1_worksheet_a232d0b0bda13403f81bdcad654cf077e}
+\hypertarget{classfastxcel_1_1_worksheet_a0df0dd75430f0fc3528eb37d679b9a95}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!SheetId@{SheetId}}
+\index{SheetId@{SheetId}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{SheetId}]{\setlength{\rightskip}{0pt plus 5cm}short fastxcel.Worksheet.SheetId\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}}
+\label{classfastxcel_1_1_worksheet_a0df0dd75430f0fc3528eb37d679b9a95}
+\hypertarget{classfastxcel_1_1_worksheet_ab96ae7cff692cb6d855ff832b0cebb0f}{
+\index{fastxcel::Worksheet@{fastxcel::Worksheet}!XmlPath@{XmlPath}}
+\index{XmlPath@{XmlPath}!fastxcel::Worksheet@{fastxcel::Worksheet}}
+\subsubsection[{XmlPath}]{\setlength{\rightskip}{0pt plus 5cm}string fastxcel.Worksheet.XmlPath\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}}
+\label{classfastxcel_1_1_worksheet_ab96ae7cff692cb6d855ff832b0cebb0f}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_worksheet_8cs}{Worksheet.cs}\end{DoxyCompactItemize}

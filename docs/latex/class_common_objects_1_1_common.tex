@@ -1,0 +1,398 @@
+\hypertarget{class_common_objects_1_1_common}{
+\section{CommonObjects.Common Class Reference}
+\label{class_common_objects_1_1_common}\index{CommonObjects::Common@{CommonObjects::Common}}
+}
+
+
+Функции для общего пользования  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_common_objects_1_1_common_1_1_parameter_dictionary-g}{ParameterDictionary}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_common_objects_1_1_common_a0e1ac9aab4bbc7ca5795ec1c6723d5c5}{IsNumber} (string text)
+\begin{DoxyCompactList}\small\item\em Число ли введено в строке? \item\end{DoxyCompactList}\item 
+static List$<$ string $>$ \hyperlink{class_common_objects_1_1_common_a27e95ea42c3ae768e52ac475cf946e3e}{ExplodeString} (string source, string delimiter)
+\begin{DoxyCompactList}\small\item\em Разделение строки по разделителю \item\end{DoxyCompactList}\item 
+static List$<$ string $>$ \hyperlink{class_common_objects_1_1_common_a8a961582ce85c659e60c6f1fe1f093be}{ExplodeString} (string source, string delimiter, string quote)
+\item 
+static string \hyperlink{class_common_objects_1_1_common_ac5418ec56a1dad138de41412d520e1b9}{DictionaryToString} (Dictionary$<$ string, string $>$ dict, string delimiter=\char`\"{}=\char`\"{}, string key\_\-quote=\char`\"{}\char`\"{}, string value\_\-quote=\char`\"{}$\backslash$\char`\"{}\char`\"{}, string string\_\-delimeter=\char`\"{},\char`\"{})
+\item 
+static string \hyperlink{class_common_objects_1_1_common_a3713b3726e55e6773b665af94d7c2582}{ListToString} (List$<$ string $>$ list, string delimiter)
+\begin{DoxyCompactList}\small\item\em list$<$$>$ =$>$ string \item\end{DoxyCompactList}\item 
+static string \hyperlink{class_common_objects_1_1_common_a0492f157bdcba00da057bf1d90326536}{ListToString} (List$<$ string $>$ list, string delimiter, string quote)
+\begin{DoxyCompactList}\small\item\em list$<$$>$ =$>$ string \item\end{DoxyCompactList}\item 
+static String \hyperlink{class_common_objects_1_1_common_a12f8f3c8797f7f21e171a51efbcbb89a}{ChangeEncoding} (String strg, String src\_\-encoding, string dest\_\-encoding)
+\begin{DoxyCompactList}\small\item\em Смена кодировки \item\end{DoxyCompactList}\item 
+static String \hyperlink{class_common_objects_1_1_common_a1a4fae5cc5660e3fd64d66d452ba3417}{ChangeEncoding} (String strg, String src\_\-encoding, int dest\_\-encoding)
+\begin{DoxyCompactList}\small\item\em Смена кодировки \item\end{DoxyCompactList}\item 
+static String \hyperlink{class_common_objects_1_1_common_af2523640eaebcf44c9046a0e4958d05d}{ChangeEncoding} (String strg, int src\_\-encoding, int dest\_\-encoding)
+\begin{DoxyCompactList}\small\item\em Смена кодировки \item\end{DoxyCompactList}\item 
+static String \hyperlink{class_common_objects_1_1_common_a4e7f36a9b9b35e7fad3419bedb55f323}{ChangeEncoding} (String strg, int src\_\-encoding, string dest\_\-encoding)
+\begin{DoxyCompactList}\small\item\em Смена кодировки \item\end{DoxyCompactList}\item 
+static String \hyperlink{class_common_objects_1_1_common_a4f95e91fcf6000d3f2e99bc7242f33a3}{ChangeEncoding} (String strg, Encoding src\_\-encoding, Encoding dest\_\-encoding)
+\begin{DoxyCompactList}\small\item\em Смена кодировки \item\end{DoxyCompactList}\item 
+static String \hyperlink{class_common_objects_1_1_common_a28b60d18f941169565d19ad3703617ca}{ChangeEncodingToDefault} (String strg, Encoding src\_\-encoding)
+\begin{DoxyCompactList}\small\item\em Смена кодировки на кодировку по умолчанию \item\end{DoxyCompactList}\item 
+static String \hyperlink{class_common_objects_1_1_common_a0a0adffdc8c0ad502be63e291570cd7c}{ChangeEncodingToDefault} (String strg, String src\_\-encoding)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Функции для общего пользования 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_common_objects_1_1_common_a12f8f3c8797f7f21e171a51efbcbb89a}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ChangeEncoding@{ChangeEncoding}}
+\index{ChangeEncoding@{ChangeEncoding}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ChangeEncoding}]{\setlength{\rightskip}{0pt plus 5cm}static String CommonObjects.Common.ChangeEncoding (
+\begin{DoxyParamCaption}
+\item[{String}]{ strg, }
+\item[{String}]{ src\_\-encoding, }
+\item[{string}]{ dest\_\-encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a12f8f3c8797f7f21e171a51efbcbb89a}
+
+
+Смена кодировки 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strg} & \\
+\hline
+{\em src\_\-encoding} & \\
+\hline
+{\em dest\_\-encoding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_common_objects_1_1_common_a12f8f3c8797f7f21e171a51efbcbb89a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_common_objects_1_1_common_a1a4fae5cc5660e3fd64d66d452ba3417}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ChangeEncoding@{ChangeEncoding}}
+\index{ChangeEncoding@{ChangeEncoding}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ChangeEncoding}]{\setlength{\rightskip}{0pt plus 5cm}static String CommonObjects.Common.ChangeEncoding (
+\begin{DoxyParamCaption}
+\item[{String}]{ strg, }
+\item[{String}]{ src\_\-encoding, }
+\item[{int}]{ dest\_\-encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a1a4fae5cc5660e3fd64d66d452ba3417}
+
+
+Смена кодировки 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strg} & \\
+\hline
+{\em src\_\-encoding} & \\
+\hline
+{\em dest\_\-encoding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_common_objects_1_1_common_af2523640eaebcf44c9046a0e4958d05d}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ChangeEncoding@{ChangeEncoding}}
+\index{ChangeEncoding@{ChangeEncoding}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ChangeEncoding}]{\setlength{\rightskip}{0pt plus 5cm}static String CommonObjects.Common.ChangeEncoding (
+\begin{DoxyParamCaption}
+\item[{String}]{ strg, }
+\item[{int}]{ src\_\-encoding, }
+\item[{int}]{ dest\_\-encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_af2523640eaebcf44c9046a0e4958d05d}
+
+
+Смена кодировки 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strg} & \\
+\hline
+{\em src\_\-encoding} & \\
+\hline
+{\em dest\_\-encoding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_common_objects_1_1_common_a4e7f36a9b9b35e7fad3419bedb55f323}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ChangeEncoding@{ChangeEncoding}}
+\index{ChangeEncoding@{ChangeEncoding}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ChangeEncoding}]{\setlength{\rightskip}{0pt plus 5cm}static String CommonObjects.Common.ChangeEncoding (
+\begin{DoxyParamCaption}
+\item[{String}]{ strg, }
+\item[{int}]{ src\_\-encoding, }
+\item[{string}]{ dest\_\-encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a4e7f36a9b9b35e7fad3419bedb55f323}
+
+
+Смена кодировки 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strg} & \\
+\hline
+{\em src\_\-encoding} & \\
+\hline
+{\em dest\_\-encoding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_common_objects_1_1_common_a4f95e91fcf6000d3f2e99bc7242f33a3}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ChangeEncoding@{ChangeEncoding}}
+\index{ChangeEncoding@{ChangeEncoding}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ChangeEncoding}]{\setlength{\rightskip}{0pt plus 5cm}static String CommonObjects.Common.ChangeEncoding (
+\begin{DoxyParamCaption}
+\item[{String}]{ strg, }
+\item[{Encoding}]{ src\_\-encoding, }
+\item[{Encoding}]{ dest\_\-encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a4f95e91fcf6000d3f2e99bc7242f33a3}
+
+
+Смена кодировки 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strg} & \\
+\hline
+{\em src\_\-encoding} & \\
+\hline
+{\em dest\_\-encoding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_common_objects_1_1_common_a28b60d18f941169565d19ad3703617ca}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ChangeEncodingToDefault@{ChangeEncodingToDefault}}
+\index{ChangeEncodingToDefault@{ChangeEncodingToDefault}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ChangeEncodingToDefault}]{\setlength{\rightskip}{0pt plus 5cm}static String CommonObjects.Common.ChangeEncodingToDefault (
+\begin{DoxyParamCaption}
+\item[{String}]{ strg, }
+\item[{Encoding}]{ src\_\-encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a28b60d18f941169565d19ad3703617ca}
+
+
+Смена кодировки на кодировку по умолчанию 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strg} & \\
+\hline
+{\em src\_\-encoding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_common_objects_1_1_common_a28b60d18f941169565d19ad3703617ca_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_common_objects_1_1_common_a0a0adffdc8c0ad502be63e291570cd7c}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ChangeEncodingToDefault@{ChangeEncodingToDefault}}
+\index{ChangeEncodingToDefault@{ChangeEncodingToDefault}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ChangeEncodingToDefault}]{\setlength{\rightskip}{0pt plus 5cm}static String CommonObjects.Common.ChangeEncodingToDefault (
+\begin{DoxyParamCaption}
+\item[{String}]{ strg, }
+\item[{String}]{ src\_\-encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a0a0adffdc8c0ad502be63e291570cd7c}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_common_objects_1_1_common_a0a0adffdc8c0ad502be63e291570cd7c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_common_objects_1_1_common_ac5418ec56a1dad138de41412d520e1b9}{
+\index{CommonObjects::Common@{CommonObjects::Common}!DictionaryToString@{DictionaryToString}}
+\index{DictionaryToString@{DictionaryToString}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{DictionaryToString}]{\setlength{\rightskip}{0pt plus 5cm}static string CommonObjects.Common.DictionaryToString (
+\begin{DoxyParamCaption}
+\item[{Dictionary$<$ string, string $>$}]{ dict, }
+\item[{string}]{ delimiter = {\ttfamily \char`\"{}=\char`\"{}}, }
+\item[{string}]{ key\_\-quote = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{string}]{ value\_\-quote = {\ttfamily \char`\"{}$\backslash$\char`\"{}\char`\"{}}, }
+\item[{string}]{ string\_\-delimeter = {\ttfamily \char`\"{},\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_ac5418ec56a1dad138de41412d520e1b9}
+\hypertarget{class_common_objects_1_1_common_a27e95ea42c3ae768e52ac475cf946e3e}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ExplodeString@{ExplodeString}}
+\index{ExplodeString@{ExplodeString}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ExplodeString}]{\setlength{\rightskip}{0pt plus 5cm}static List$<$string$>$ CommonObjects.Common.ExplodeString (
+\begin{DoxyParamCaption}
+\item[{string}]{ source, }
+\item[{string}]{ delimiter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a27e95ea42c3ae768e52ac475cf946e3e}
+
+
+Разделение строки по разделителю 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & исходная трочка\\
+\hline
+{\em delimiter} & разделитель\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_common_objects_1_1_common_a27e95ea42c3ae768e52ac475cf946e3e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_common_objects_1_1_common_a8a961582ce85c659e60c6f1fe1f093be}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ExplodeString@{ExplodeString}}
+\index{ExplodeString@{ExplodeString}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ExplodeString}]{\setlength{\rightskip}{0pt plus 5cm}static List$<$string$>$ CommonObjects.Common.ExplodeString (
+\begin{DoxyParamCaption}
+\item[{string}]{ source, }
+\item[{string}]{ delimiter, }
+\item[{string}]{ quote}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a8a961582ce85c659e60c6f1fe1f093be}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_common_objects_1_1_common_a8a961582ce85c659e60c6f1fe1f093be_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_common_objects_1_1_common_a0e1ac9aab4bbc7ca5795ec1c6723d5c5}{
+\index{CommonObjects::Common@{CommonObjects::Common}!IsNumber@{IsNumber}}
+\index{IsNumber@{IsNumber}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{IsNumber}]{\setlength{\rightskip}{0pt plus 5cm}static bool CommonObjects.Common.IsNumber (
+\begin{DoxyParamCaption}
+\item[{string}]{ text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a0e1ac9aab4bbc7ca5795ec1c6723d5c5}
+
+
+Число ли введено в строке? 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_common_objects_1_1_common_a0492f157bdcba00da057bf1d90326536}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ListToString@{ListToString}}
+\index{ListToString@{ListToString}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ListToString}]{\setlength{\rightskip}{0pt plus 5cm}static string CommonObjects.Common.ListToString (
+\begin{DoxyParamCaption}
+\item[{List$<$ string $>$}]{ list, }
+\item[{string}]{ delimiter, }
+\item[{string}]{ quote}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a0492f157bdcba00da057bf1d90326536}
+
+
+list$<$$>$ =$>$ string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & исходный массив List$<$$>$\\
+\hline
+{\em delimiter} & разделитель\\
+\hline
+{\em quote} & кавычка\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_common_objects_1_1_common_a3713b3726e55e6773b665af94d7c2582}{
+\index{CommonObjects::Common@{CommonObjects::Common}!ListToString@{ListToString}}
+\index{ListToString@{ListToString}!CommonObjects::Common@{CommonObjects::Common}}
+\subsubsection[{ListToString}]{\setlength{\rightskip}{0pt plus 5cm}static string CommonObjects.Common.ListToString (
+\begin{DoxyParamCaption}
+\item[{List$<$ string $>$}]{ list, }
+\item[{string}]{ delimiter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_common_objects_1_1_common_a3713b3726e55e6773b665af94d7c2582}
+
+
+list$<$$>$ =$>$ string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & исходный массив List$<$$>$\\
+\hline
+{\em delimiter} & разделитель\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+Common/\hyperlink{common_8cs}{common.cs}\end{DoxyCompactItemize}

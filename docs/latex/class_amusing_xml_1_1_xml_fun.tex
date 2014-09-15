@@ -1,0 +1,597 @@
+\hypertarget{class_amusing_xml_1_1_xml_fun}{
+\section{AmusingXml.XmlFun Class Reference}
+\label{class_amusing_xml_1_1_xml_fun}\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+}
+
+
+Description of \hyperlink{namespace_amusing_xml}{AmusingXml}.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_amusing_xml_1_1_xml_fun_a1531304c24acea3d9378f0e238760c9c}{XmlFun} ()
+\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a2b0d8652f90041bdeff2ea7823615e31}{CreateDocument} (string document\_\-name)
+\begin{DoxyCompactList}\small\item\em Создаем документ и назначаем ему имя \item\end{DoxyCompactList}\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a69258c79fe8838e764088dea2364eec9}{CreateDocument} (string document\_\-name, string inner\_\-xml)
+\begin{DoxyCompactList}\small\item\em Создаем документ и назначаем ему имя \item\end{DoxyCompactList}\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a9b0ae0134d0d376e3c9d05072cc77af3}{SaveDocument} (string path=null)
+\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a0031c915715492d683f7677af0b845da}{FillXmlElements} (XmlDocument doc)
+\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a2c8a45a2a6ad18ee38d42d0272e6037c}{FillXmlElements} (\hyperlink{class_amusing_xml_1_1_ext_xml_node}{ExtXmlNode} elem)
+\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a4cb1f3ab30abf83e406d533edbbb8b4d}{SortNodesByAttrValue} (string node\_\-name, string attr\_\-name)
+\begin{DoxyCompactList}\small\item\em сортируем узлы по значению аттрибута \item\end{DoxyCompactList}\item 
+delegate int \hyperlink{class_amusing_xml_1_1_xml_fun_a7c462fb50468785b5f85e9554acd0bf8}{NodeSortFunc} (\hyperlink{class_amusing_xml_1_1_ext_xml_node}{ExtXmlNode} el1, \hyperlink{class_amusing_xml_1_1_ext_xml_node}{ExtXmlNode} el2, string attr\_\-name)
+\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a6a3dd0a2dc82af41e5dad75db5207dff}{SortNodesByAttrValue} (string node\_\-name, string attr\_\-name, NodeSortFunc \_\-sort\_\-delegate)
+\begin{DoxyCompactList}\small\item\em сортируем узлы по значению аттрибута \item\end{DoxyCompactList}\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_ab79e8636c62f5f8a87224d6b26c8935c}{SortNodesByAttrIntValue} (string node\_\-name, string attr\_\-name)
+\begin{DoxyCompactList}\small\item\em сортируем узлы по значению аттрибута, полагая, что значение типа integer. \item\end{DoxyCompactList}\item 
+XmlElement \hyperlink{class_amusing_xml_1_1_xml_fun_aa00f4baa0a689788c39395407823c6b2}{CreateNode} (string name, Dictionary$<$ string, string $>$ attributes, string inner\_\-text, XmlElement parent\_\-node)
+\begin{DoxyCompactList}\small\item\em Создаем узел с аттрибутами \item\end{DoxyCompactList}\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a9eae01f6380bf3b58933233a59bc9b2c}{RemoveNode} (string name, Dictionary$<$ string, string $>$ attributes=null)
+\begin{DoxyCompactList}\small\item\em Удаление узла \item\end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_amusing_xml_1_1_ext_xml_node}{ExtXmlNode} $>$ \hyperlink{class_amusing_xml_1_1_xml_fun_ad3e94f40bb094227055f6ab051e61c61}{ExtFindNodes} (string name, Dictionary$<$ string, string $>$ attributes=null)
+\item 
+List$<$ XmlElement $>$ \hyperlink{class_amusing_xml_1_1_xml_fun_a48c4856b911446b2f862f51f1bb797a4}{FindNodes} (string name, Dictionary$<$ string, string $>$ attributes=null)
+\item 
+List$<$ XmlElement $>$ \hyperlink{class_amusing_xml_1_1_xml_fun_a66e3ece0c48aba2804f97225de4ff3e6}{FindNodes} (Dictionary$<$ string, string $>$ attributes)
+\begin{DoxyCompactList}\small\item\em Ищем узлы по аттрибутам \item\end{DoxyCompactList}\item 
+XmlElement \hyperlink{class_amusing_xml_1_1_xml_fun_a7fedbc8fb6aa359371642db4a34247d2}{FindFirstNode} (string name, Dictionary$<$ string, string $>$ attributes)
+\begin{DoxyCompactList}\small\item\em Ищем узел (первый попавшийся) по аттрибутам и имени \item\end{DoxyCompactList}\item 
+XmlElement \hyperlink{class_amusing_xml_1_1_xml_fun_ac369e59fe25313a47b2b20de76fa91d7}{FindFirstNode} (Dictionary$<$ string, string $>$ attributes)
+\begin{DoxyCompactList}\small\item\em Ищем узел (первый попавшийся) по аттрибутам \item\end{DoxyCompactList}\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_a830329f1f25c07eefa1b54cf3e32c34a}{LoadDocument} (string filename)
+\begin{DoxyCompactList}\small\item\em Загрузка документа \item\end{DoxyCompactList}\item 
+void \hyperlink{class_amusing_xml_1_1_xml_fun_af52d8876c4b5458e49afcbc147ddef9a}{LoadDocument} (XmlDocument \_\-xml\_\-document)
+\begin{DoxyCompactList}\small\item\em Загрузка документа \item\end{DoxyCompactList}\item 
+string \hyperlink{class_amusing_xml_1_1_xml_fun_a624ddab24e9256a20945cfb199058f3b}{GetText} ()
+\begin{DoxyCompactList}\small\item\em Получаем результирующий текст документа \item\end{DoxyCompactList}\item 
+Dictionary$<$ string, string $>$ \hyperlink{class_amusing_xml_1_1_xml_fun_ad4e0027abad182d24a1c632b8d4f34b4}{TextToDictionary} (string text)
+\begin{DoxyCompactList}\small\item\em Текст в формате \char`\"{}ключ1=значение1,ключ2=значение2\char`\"{}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+XmlDocument \hyperlink{class_amusing_xml_1_1_xml_fun_aa595a38c7976f94d455ce1e05e90797c}{Document}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ XmlElement $>$ \hyperlink{class_amusing_xml_1_1_xml_fun_a4ef87d10dac57315380a1ccceb749dda}{XmlElements}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Description of \hyperlink{namespace_amusing_xml}{AmusingXml}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_amusing_xml_1_1_xml_fun_a1531304c24acea3d9378f0e238760c9c}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!XmlFun@{XmlFun}}
+\index{XmlFun@{XmlFun}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{XmlFun}]{\setlength{\rightskip}{0pt plus 5cm}AmusingXml.XmlFun.XmlFun (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a1531304c24acea3d9378f0e238760c9c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_amusing_xml_1_1_xml_fun_a2b0d8652f90041bdeff2ea7823615e31}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!CreateDocument@{CreateDocument}}
+\index{CreateDocument@{CreateDocument}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{CreateDocument}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.CreateDocument (
+\begin{DoxyParamCaption}
+\item[{string}]{ document\_\-name}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a2b0d8652f90041bdeff2ea7823615e31}
+
+
+Создаем документ и назначаем ему имя 
+
+
+\begin{DoxyParams}{Parameters}
+{\em document\_\-name} & имя\\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a2b0d8652f90041bdeff2ea7823615e31_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a69258c79fe8838e764088dea2364eec9}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!CreateDocument@{CreateDocument}}
+\index{CreateDocument@{CreateDocument}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{CreateDocument}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.CreateDocument (
+\begin{DoxyParamCaption}
+\item[{string}]{ document\_\-name, }
+\item[{string}]{ inner\_\-xml}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a69258c79fe8838e764088dea2364eec9}
+
+
+Создаем документ и назначаем ему имя 
+
+
+\begin{DoxyParams}{Parameters}
+{\em document\_\-name} & имя\\
+\hline
+{\em inner\_\-xml} & содержимое\\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a69258c79fe8838e764088dea2364eec9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_aa00f4baa0a689788c39395407823c6b2}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!CreateNode@{CreateNode}}
+\index{CreateNode@{CreateNode}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{CreateNode}]{\setlength{\rightskip}{0pt plus 5cm}XmlElement AmusingXml.XmlFun.CreateNode (
+\begin{DoxyParamCaption}
+\item[{string}]{ name, }
+\item[{Dictionary$<$ string, string $>$}]{ attributes, }
+\item[{string}]{ inner\_\-text, }
+\item[{XmlElement}]{ parent\_\-node}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_aa00f4baa0a689788c39395407823c6b2}
+
+
+Создаем узел с аттрибутами 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em attributes} & \\
+\hline
+{\em inner\_\-text} & \\
+\hline
+{\em parent\_\-node} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_amusing_xml_1_1_xml_fun_ad3e94f40bb094227055f6ab051e61c61}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!ExtFindNodes@{ExtFindNodes}}
+\index{ExtFindNodes@{ExtFindNodes}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{ExtFindNodes}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf ExtXmlNode}$>$ AmusingXml.XmlFun.ExtFindNodes (
+\begin{DoxyParamCaption}
+\item[{string}]{ name, }
+\item[{Dictionary$<$ string, string $>$}]{ attributes = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_ad3e94f40bb094227055f6ab051e61c61}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_ad3e94f40bb094227055f6ab051e61c61_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_ad3e94f40bb094227055f6ab051e61c61_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a0031c915715492d683f7677af0b845da}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!FillXmlElements@{FillXmlElements}}
+\index{FillXmlElements@{FillXmlElements}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{FillXmlElements}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.FillXmlElements (
+\begin{DoxyParamCaption}
+\item[{XmlDocument}]{ doc}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a0031c915715492d683f7677af0b845da}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a0031c915715492d683f7677af0b845da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a2c8a45a2a6ad18ee38d42d0272e6037c}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!FillXmlElements@{FillXmlElements}}
+\index{FillXmlElements@{FillXmlElements}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{FillXmlElements}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.FillXmlElements (
+\begin{DoxyParamCaption}
+\item[{{\bf ExtXmlNode}}]{ elem}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a2c8a45a2a6ad18ee38d42d0272e6037c}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a2c8a45a2a6ad18ee38d42d0272e6037c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_ac369e59fe25313a47b2b20de76fa91d7}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!FindFirstNode@{FindFirstNode}}
+\index{FindFirstNode@{FindFirstNode}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{FindFirstNode}]{\setlength{\rightskip}{0pt plus 5cm}XmlElement AmusingXml.XmlFun.FindFirstNode (
+\begin{DoxyParamCaption}
+\item[{Dictionary$<$ string, string $>$}]{ attributes}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_ac369e59fe25313a47b2b20de76fa91d7}
+
+
+Ищем узел (первый попавшийся) по аттрибутам 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attributes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_amusing_xml_1_1_xml_fun_a7fedbc8fb6aa359371642db4a34247d2}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!FindFirstNode@{FindFirstNode}}
+\index{FindFirstNode@{FindFirstNode}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{FindFirstNode}]{\setlength{\rightskip}{0pt plus 5cm}XmlElement AmusingXml.XmlFun.FindFirstNode (
+\begin{DoxyParamCaption}
+\item[{string}]{ name, }
+\item[{Dictionary$<$ string, string $>$}]{ attributes}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a7fedbc8fb6aa359371642db4a34247d2}
+
+
+Ищем узел (первый попавшийся) по аттрибутам и имени 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attributes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a7fedbc8fb6aa359371642db4a34247d2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a48c4856b911446b2f862f51f1bb797a4}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!FindNodes@{FindNodes}}
+\index{FindNodes@{FindNodes}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{FindNodes}]{\setlength{\rightskip}{0pt plus 5cm}List$<$XmlElement$>$ AmusingXml.XmlFun.FindNodes (
+\begin{DoxyParamCaption}
+\item[{string}]{ name, }
+\item[{Dictionary$<$ string, string $>$}]{ attributes = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a48c4856b911446b2f862f51f1bb797a4}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a48c4856b911446b2f862f51f1bb797a4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a66e3ece0c48aba2804f97225de4ff3e6}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!FindNodes@{FindNodes}}
+\index{FindNodes@{FindNodes}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{FindNodes}]{\setlength{\rightskip}{0pt plus 5cm}List$<$XmlElement$>$ AmusingXml.XmlFun.FindNodes (
+\begin{DoxyParamCaption}
+\item[{Dictionary$<$ string, string $>$}]{ attributes}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a66e3ece0c48aba2804f97225de4ff3e6}
+
+
+Ищем узлы по аттрибутам 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attributes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_amusing_xml_1_1_xml_fun_a624ddab24e9256a20945cfb199058f3b}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!GetText@{GetText}}
+\index{GetText@{GetText}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{GetText}]{\setlength{\rightskip}{0pt plus 5cm}string AmusingXml.XmlFun.GetText (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a624ddab24e9256a20945cfb199058f3b}
+
+
+Получаем результирующий текст документа 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_amusing_xml_1_1_xml_fun_af52d8876c4b5458e49afcbc147ddef9a}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!LoadDocument@{LoadDocument}}
+\index{LoadDocument@{LoadDocument}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{LoadDocument}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.LoadDocument (
+\begin{DoxyParamCaption}
+\item[{XmlDocument}]{ \_\-xml\_\-document}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_af52d8876c4b5458e49afcbc147ddef9a}
+
+
+Загрузка документа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_af52d8876c4b5458e49afcbc147ddef9a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a830329f1f25c07eefa1b54cf3e32c34a}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!LoadDocument@{LoadDocument}}
+\index{LoadDocument@{LoadDocument}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{LoadDocument}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.LoadDocument (
+\begin{DoxyParamCaption}
+\item[{string}]{ filename}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a830329f1f25c07eefa1b54cf3e32c34a}
+
+
+Загрузка документа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a830329f1f25c07eefa1b54cf3e32c34a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a7c462fb50468785b5f85e9554acd0bf8}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!NodeSortFunc@{NodeSortFunc}}
+\index{NodeSortFunc@{NodeSortFunc}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{NodeSortFunc}]{\setlength{\rightskip}{0pt plus 5cm}delegate int AmusingXml.XmlFun.NodeSortFunc (
+\begin{DoxyParamCaption}
+\item[{{\bf ExtXmlNode}}]{ el1, }
+\item[{{\bf ExtXmlNode}}]{ el2, }
+\item[{string}]{ attr\_\-name}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a7c462fb50468785b5f85e9554acd0bf8}
+\hypertarget{class_amusing_xml_1_1_xml_fun_a9eae01f6380bf3b58933233a59bc9b2c}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{RemoveNode}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.RemoveNode (
+\begin{DoxyParamCaption}
+\item[{string}]{ name, }
+\item[{Dictionary$<$ string, string $>$}]{ attributes = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a9eae01f6380bf3b58933233a59bc9b2c}
+
+
+Удаление узла 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Имя узла\\
+\hline
+{\em attributes} & Аттрибуты зла\\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a9eae01f6380bf3b58933233a59bc9b2c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a9b0ae0134d0d376e3c9d05072cc77af3}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!SaveDocument@{SaveDocument}}
+\index{SaveDocument@{SaveDocument}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{SaveDocument}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.SaveDocument (
+\begin{DoxyParamCaption}
+\item[{string}]{ path = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a9b0ae0134d0d376e3c9d05072cc77af3}
+\hypertarget{class_amusing_xml_1_1_xml_fun_ab79e8636c62f5f8a87224d6b26c8935c}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!SortNodesByAttrIntValue@{SortNodesByAttrIntValue}}
+\index{SortNodesByAttrIntValue@{SortNodesByAttrIntValue}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{SortNodesByAttrIntValue}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.SortNodesByAttrIntValue (
+\begin{DoxyParamCaption}
+\item[{string}]{ node\_\-name, }
+\item[{string}]{ attr\_\-name}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_ab79e8636c62f5f8a87224d6b26c8935c}
+
+
+сортируем узлы по значению аттрибута, полагая, что значение типа integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\_\-name} & \\
+\hline
+{\em attr\_\-name} & \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_ab79e8636c62f5f8a87224d6b26c8935c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a6a3dd0a2dc82af41e5dad75db5207dff}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!SortNodesByAttrValue@{SortNodesByAttrValue}}
+\index{SortNodesByAttrValue@{SortNodesByAttrValue}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{SortNodesByAttrValue}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.SortNodesByAttrValue (
+\begin{DoxyParamCaption}
+\item[{string}]{ node\_\-name, }
+\item[{string}]{ attr\_\-name, }
+\item[{NodeSortFunc}]{ \_\-sort\_\-delegate}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a6a3dd0a2dc82af41e5dad75db5207dff}
+
+
+сортируем узлы по значению аттрибута 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\_\-name} & \\
+\hline
+{\em attr\_\-name} & \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a6a3dd0a2dc82af41e5dad75db5207dff_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_a4cb1f3ab30abf83e406d533edbbb8b4d}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!SortNodesByAttrValue@{SortNodesByAttrValue}}
+\index{SortNodesByAttrValue@{SortNodesByAttrValue}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{SortNodesByAttrValue}]{\setlength{\rightskip}{0pt plus 5cm}void AmusingXml.XmlFun.SortNodesByAttrValue (
+\begin{DoxyParamCaption}
+\item[{string}]{ node\_\-name, }
+\item[{string}]{ attr\_\-name}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_a4cb1f3ab30abf83e406d533edbbb8b4d}
+
+
+сортируем узлы по значению аттрибута 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\_\-name} & \\
+\hline
+{\em attr\_\-name} & \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_amusing_xml_1_1_xml_fun_a4cb1f3ab30abf83e406d533edbbb8b4d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_amusing_xml_1_1_xml_fun_ad4e0027abad182d24a1c632b8d4f34b4}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!TextToDictionary@{TextToDictionary}}
+\index{TextToDictionary@{TextToDictionary}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{TextToDictionary}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, string$>$ AmusingXml.XmlFun.TextToDictionary (
+\begin{DoxyParamCaption}
+\item[{string}]{ text}
+\end{DoxyParamCaption}
+)}}
+\label{class_amusing_xml_1_1_xml_fun_ad4e0027abad182d24a1c632b8d4f34b4}
+
+
+Текст в формате \char`\"{}ключ1=значение1,ключ2=значение2\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & текст\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_amusing_xml_1_1_xml_fun_aa595a38c7976f94d455ce1e05e90797c}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!Document@{Document}}
+\index{Document@{Document}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{Document}]{\setlength{\rightskip}{0pt plus 5cm}XmlDocument AmusingXml.XmlFun.Document\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}}}
+\label{class_amusing_xml_1_1_xml_fun_aa595a38c7976f94d455ce1e05e90797c}
+\hypertarget{class_amusing_xml_1_1_xml_fun_a4ef87d10dac57315380a1ccceb749dda}{
+\index{AmusingXml::XmlFun@{AmusingXml::XmlFun}!XmlElements@{XmlElements}}
+\index{XmlElements@{XmlElements}!AmusingXml::XmlFun@{AmusingXml::XmlFun}}
+\subsubsection[{XmlElements}]{\setlength{\rightskip}{0pt plus 5cm}List$<$XmlElement$>$ AmusingXml.XmlFun.XmlElements\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}}
+\label{class_amusing_xml_1_1_xml_fun_a4ef87d10dac57315380a1ccceb749dda}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+Xml/\hyperlink{_amusing_xml_8cs}{AmusingXml.cs}\end{DoxyCompactItemize}

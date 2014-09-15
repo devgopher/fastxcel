@@ -32,8 +32,7 @@ namespace fastxcel
 			Load();
 		}
 
-		void Load()
-		{
+		void Load() {
 			fast_zip = new FastZip();
 			xml_shared_strings = new XmlFun();
 			xml_sheets = new List<XmlFun>();
@@ -41,7 +40,6 @@ namespace fastxcel
 			xml_wb_rels = new XmlFun();
 			shared_strings = new Dictionary<int, string>();
 			Worksheets = new List<Worksheet>();
-			
 		}
 		
 		void LoadDocPrepare() {
@@ -66,7 +64,6 @@ namespace fastxcel
 				throw new FastXcelException(ex.Message, ex);
 			}
 		}
-		
 		
 		public void Open( string file_path ) {
 			try {
@@ -118,6 +115,10 @@ namespace fastxcel
 				bw.Write(inners);
 				bw.Close();
 				
+				Open( file_path );
+				
+				//	LoadDocPrepare();
+				
 			} catch ( Exception ex ) {
 				throw new FastXcelException(ex.Message, ex);
 			}
@@ -149,7 +150,8 @@ namespace fastxcel
 			foreach ( KeyValuePair<int,string> sh_str in shared_strings ) {
 				strgs += "<si><t>"+sh_str.Value+"</t></si>";
 			}
-			
+			if ( xml_shared_strings == null )
+				xml_shared_strings = new AmusingXml.XmlFun();
 			xml_shared_strings.Document.InnerXml = inner_xml_header + strgs + inner_xml_footer;
 			xml_shared_strings.SaveDocument(temp_path+"\\xl\\sharedStrings.xml");
 		}
@@ -234,30 +236,41 @@ namespace fastxcel
 		}
 		
 		private void ProcessWorksheets() {
-			string[] xl_sheet_files = Directory.GetFiles(temp_path+"\\xl\\worksheets\\", "sheet*.xml");
-			
-			foreach ( string sheet_file in xl_sheet_files ) {
-				string res_id = GetResourceId(sheet_file);
-				string name = GetWorksheetName(sheet_file, res_id);
-				short sheet_id = GetWorksheetId(sheet_file, res_id);
-				Console.WriteLine("---------------------------"+ sheet_file +"-------------------------------------");
-				Worksheet wrk =  new Worksheet( shared_strings );
-				wrk.Load( res_id, sheet_id, name, sheet_file, shared_strings );
-				wrk.Number = (uint)Worksheets.Count;
-				Console.WriteLine("---------------------------------------------------------------------------------------");
-				Worksheets.Add( wrk );
+			try {
+				string[] xl_sheet_files = Directory.GetFiles(temp_path+"\\xl\\worksheets\\", "sheet*.xml");
+				
+				foreach ( string sheet_file in xl_sheet_files ) {
+					string res_id = GetResourceId(sheet_file);
+					string name = GetWorksheetName(sheet_file, res_id);
+					short sheet_id = GetWorksheetId(sheet_file, res_id);
+					Console.WriteLine("---------------------------"+ sheet_file +"-------------------------------------");
+					Worksheet wrk =  new Worksheet( shared_strings );
+					wrk.Load( res_id, sheet_id, name, sheet_file, shared_strings );
+					wrk.Number = (uint)Worksheets.Count;
+					Console.WriteLine("---------------------------------------------------------------------------------------");
+					Worksheets.Add( wrk );
+				}
+			} catch ( Exception ex ) {
+				throw new FastXcelException( "Error processing worksheets", ex );
 			}
 		}
 		
 		public void Close() {
-			Directory.Delete( temp_path, true );
-			Worksheets.Clear();
-			xml_sheets.Clear();
-			shared_strings.Clear();
+			try {
+				Worksheets.Clear();
+				xml_sheets.Clear();
+				shared_strings.Clear();
+				Directory.Delete( temp_path, true );
+			} catch ( Exception ex ) {
+				throw new FastXcelException( "Error closing a document", ex );
+			}
 		}
 		
 		public void Dispose() {
-			Directory.Delete( temp_path, true );
+			Worksheets.Clear();
+			xml_sheets.Clear();
+			shared_strings.Clear();
+			//this.Close();
 		}
 	}
 }
