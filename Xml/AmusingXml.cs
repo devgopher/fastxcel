@@ -168,8 +168,8 @@ namespace AmusingXml
 				// удаляем узлы, упорядоченные по-старому...
 				foreach (var nd in row_nodes) {
 					nd.ParentNode.RemoveChild(nd.InnerNode);
-				}
-				
+				}			
+								
 				// вставляем в новом порядке
 				XmlNode prev_node = null;
 				foreach (var nd in row_nodes) {
@@ -179,34 +179,6 @@ namespace AmusingXml
 			}
 		}
 		
-		public delegate int NodeSortFunc(ExtXmlNode el1, ExtXmlNode el2, string attr_name);
-		
-		/// <summary>
-		/// сортируем узлы по значению аттрибута
-		/// </summary>
-		/// <param name="node_name"></param>
-		/// <param name="attr_name"></param>
-		public void SortNodesByAttrValue( string node_name, string attr_name, NodeSortFunc _sort_delegate ) {
-			var row_nodes = ExtFindNodes( node_name );
-
-			if ( row_nodes.Count > 0 ) {
-				row_nodes.Sort( (ExtXmlNode el1, ExtXmlNode el2) => { return _sort_delegate(el1,el2,attr_name);} );
-				// удаляем узлы, упорядоченные по-старому...
-				foreach (var nd in row_nodes) {
-					if ( nd.ParentNode != null )
-						nd.ParentNode.RemoveChild(nd.InnerNode);
-				}
-				
-				// вставляем в новом порядке
-				XmlNode prev_node = null;
-				foreach (var nd in row_nodes) {
-					if ( nd.ParentNode != null ) {
-						nd.ParentNode.InsertBefore(nd.InnerNode, null);
-						prev_node = nd.InnerNode;
-					}
-				}
-			}
-		}
 		
 		/// <summary>
 		/// сортируем узлы по значению аттрибута, полагая, что значение типа integer
@@ -214,11 +186,8 @@ namespace AmusingXml
 		/// <param name="node_name"></param>
 		/// <param name="attr_name"></param>
 		public void SortNodesByAttrIntValue( string node_name, string attr_name ) {
-			var row_nodes = FindNodes( node_name, new Dictionary<string, string>() );
-			XmlNode global_parent = FindFirstNode( "sheetData", new Dictionary<string, string>());
-			XmlNode ws_node = FindFirstNode( "worksheet", new Dictionary<string, string>());
-			XmlNode sh_format_pr = FindFirstNode( "sheetFormatPr", new Dictionary<string, string>());
-			
+			var row_nodes = FindNodes( node_name );
+			XmlNode save_par_node = null;
 			if ( row_nodes.Count > 0 ) {
 				row_nodes.Sort( (XmlElement el1, XmlElement el2) => {
 				               	if (int.Parse(el1.Attributes[attr_name].Value) > int.Parse(el2.Attributes[attr_name].Value)) {
@@ -227,21 +196,17 @@ namespace AmusingXml
 				               		return -1;
 				               } );
 				// удаляем узлы, упорядоченные по-старому...
-				foreach ( XmlNode subn in global_parent.ChildNodes )
-					global_parent.RemoveChild(subn);
-				
-				ws_node.RemoveChild(global_parent);
-				
+				foreach (var nd in row_nodes) {
+					save_par_node = nd.ParentNode;
+					nd.ParentNode.RemoveChild(nd);
+				}
 				
 				// вставляем в новом порядке
 				XmlNode prev_node = null;
 				foreach (var nd in row_nodes) {
-					//if ( nd.ParentNode != null )
-					global_parent.InsertAfter(nd, prev_node);				
+					save_par_node.InsertAfter(nd, prev_node);
 					prev_node = nd;
 				}
-				
-				ws_node.InsertAfter( global_parent, sh_format_pr );
 			}
 		}
 		
