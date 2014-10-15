@@ -128,6 +128,7 @@ namespace fastxcel
 			try {
 				Console.WriteLine("fastxcel: saving "+file_path);
 				
+	
 				// save xml_shared_Strings...
 				SaveSharedStrings();
 				
@@ -138,7 +139,7 @@ namespace fastxcel
 				
 				Compress( file_path );
 			} catch ( Exception ex ) {
-				throw new FastXcelException(ex.Message, ex);
+				throw new FastXcelException( ex.Message, ex );
 			}
 		}
 		
