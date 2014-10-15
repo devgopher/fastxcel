@@ -116,9 +116,7 @@ namespace fastxcel
 				bw.Close();
 				
 				Open( file_path );
-				
-				//	LoadDocPrepare();
-				
+			
 			} catch ( Exception ex ) {
 				throw new FastXcelException(ex.Message, ex);
 			}
@@ -271,7 +269,6 @@ namespace fastxcel
 			Worksheets.Clear();
 			xml_sheets.Clear();
 			shared_strings.Clear();
-			//this.Close();
 		}
 	}
 }

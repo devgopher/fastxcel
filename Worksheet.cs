@@ -263,7 +263,6 @@ namespace fastxcel
 			
 			if ( _mass_value_changing == false )
 				xml_fun.FillXmlElements( xml_fun.Document );
-			//tmp_cont_array = Contents.ToArray();
 		}
 		
 		public void SetRandomCellValuesForRange( string cells_range, bool _mass_value_changing = false ) {
@@ -340,7 +339,6 @@ namespace fastxcel
 			foreach (XmlElement el in xml_fun.XmlElements) {
 				if (el.Name == "sheetData") {
 					sheet_data = el;
-					//sheet_data.InnerXml = el.InnerXml;
 					break;
 				}
 			}
@@ -363,7 +361,6 @@ namespace fastxcel
 												Contents.Add(kvp.Key, kvp.Value);
 												if (Contents.Count > tmp_cont_array.Length)
 													Array.Resize(ref tmp_cont_array, tmp_cont_array.Length+1);
-												//tmp_cont_array[Contents.Count-1] = kvp;
 											}
 										} else {
 											var kvp = new KeyValuePair<KeyValuePair<XmlNode, string>,  KeyValuePair<string, string>>(
@@ -372,7 +369,6 @@ namespace fastxcel
 											Contents.Add(kvp.Key, kvp.Value);
 											if (Contents.Count > tmp_cont_array.Length)
 												Array.Resize(ref tmp_cont_array, tmp_cont_array.Length+1);
-											//tmp_cont_array[Contents.Count-1] = kvp;
 										}
 									}
 								}
@@ -380,11 +376,6 @@ namespace fastxcel
 						}
 					}
 				}
-				
-				//if ( tmp_cont_array.Length > Contents.Count )
-				//	Array.Resize(ref tmp_cont_array, Contents.Count);
-				//tmp_cont_array = Contents.ToArray();
-				
 			}
 		}
 	}
