@@ -1,0 +1,27 @@
+var class_amusing_xml_1_1_xml_fun =
+[
+    [ "XmlFun", "class_amusing_xml_1_1_xml_fun.html#a1531304c24acea3d9378f0e238760c9c", null ],
+    [ "_SortFunc", "class_amusing_xml_1_1_xml_fun.html#a5c04d51ead6a680bef9fcb0d34b20cdc", null ],
+    [ "CreateDocument", "class_amusing_xml_1_1_xml_fun.html#a2b0d8652f90041bdeff2ea7823615e31", null ],
+    [ "CreateDocument", "class_amusing_xml_1_1_xml_fun.html#a69258c79fe8838e764088dea2364eec9", null ],
+    [ "CreateElement", "class_amusing_xml_1_1_xml_fun.html#a2d53f5ca2b7b272de9633f11704ef142", null ],
+    [ "ExtFindNodes", "class_amusing_xml_1_1_xml_fun.html#ad3e94f40bb094227055f6ab051e61c61", null ],
+    [ "FillXmlElements", "class_amusing_xml_1_1_xml_fun.html#a0031c915715492d683f7677af0b845da", null ],
+    [ "FillXmlElements", "class_amusing_xml_1_1_xml_fun.html#a2c8a45a2a6ad18ee38d42d0272e6037c", null ],
+    [ "FindFirstNode", "class_amusing_xml_1_1_xml_fun.html#a7fedbc8fb6aa359371642db4a34247d2", null ],
+    [ "FindFirstNode", "class_amusing_xml_1_1_xml_fun.html#ac369e59fe25313a47b2b20de76fa91d7", null ],
+    [ "FindNodes", "class_amusing_xml_1_1_xml_fun.html#a48c4856b911446b2f862f51f1bb797a4", null ],
+    [ "FindNodes", "class_amusing_xml_1_1_xml_fun.html#a66e3ece0c48aba2804f97225de4ff3e6", null ],
+    [ "GetText", "class_amusing_xml_1_1_xml_fun.html#a624ddab24e9256a20945cfb199058f3b", null ],
+    [ "LoadDocument", "class_amusing_xml_1_1_xml_fun.html#a830329f1f25c07eefa1b54cf3e32c34a", null ],
+    [ "LoadDocument", "class_amusing_xml_1_1_xml_fun.html#af52d8876c4b5458e49afcbc147ddef9a", null ],
+    [ "NodeSortFunc", "class_amusing_xml_1_1_xml_fun.html#a7c462fb50468785b5f85e9554acd0bf8", null ],
+    [ "RemoveNode", "class_amusing_xml_1_1_xml_fun.html#a9eae01f6380bf3b58933233a59bc9b2c", null ],
+    [ "SaveDocument", "class_amusing_xml_1_1_xml_fun.html#a9b0ae0134d0d376e3c9d05072cc77af3", null ],
+    [ "SortNodesByAttrIntValue", "class_amusing_xml_1_1_xml_fun.html#ab79e8636c62f5f8a87224d6b26c8935c", null ],
+    [ "SortNodesByAttrValue", "class_amusing_xml_1_1_xml_fun.html#a4cb1f3ab30abf83e406d533edbbb8b4d", null ],
+    [ "SortNodesByAttrValue", "class_amusing_xml_1_1_xml_fun.html#a6a3dd0a2dc82af41e5dad75db5207dff", null ],
+    [ "TextToDictionary", "class_amusing_xml_1_1_xml_fun.html#ad4e0027abad182d24a1c632b8d4f34b4", null ],
+    [ "Document", "class_amusing_xml_1_1_xml_fun.html#aa595a38c7976f94d455ce1e05e90797c", null ],
+    [ "XmlElements", "class_amusing_xml_1_1_xml_fun.html#a4ef87d10dac57315380a1ccceb749dda", null ]
+];

@@ -1,0 +1,6 @@
+digraph "Zip" {
+  compound=true
+  node [ fontsize="10", fontname="FreeSans.ttf"];
+  edge [ labelfontsize="10", labelfontname="FreeSans.ttf"];
+  dir_65630e6a7b235913d2823247170e6b03 [shape=box, label="Zip", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_65630e6a7b235913d2823247170e6b03.html"];
+}

@@ -1,0 +1,13 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
+  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Exception",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
+  Node2 [label="AmusingXml.XmlFunException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_amusing_xml_1_1_xml_fun_exception.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
+  Node3 [label="fastxcel.FastXcelException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfastxcel_1_1_fast_xcel_exception.html",tooltip="Desctiption of FastXcelException. "];
+  Node4 [label="ISerializable",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
+}

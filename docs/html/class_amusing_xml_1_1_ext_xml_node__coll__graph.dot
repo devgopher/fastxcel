@@ -1,0 +1,6 @@
+digraph "AmusingXml.ExtXmlNode"
+{
+  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
+  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
+  Node1 [label="{AmusingXml.ExtXmlNode\n|+ InnerNode\l+ Tag\l+ ParentNode\l|+ ExtXmlNode()\l+ FindSubElementsByAttribute()\l+ FindFirstSubElementByAttribute()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+}

@@ -1,0 +1,9 @@
+digraph "CommonObjects.Common.ChangeEncodingToDefault"
+{
+  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
+  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CommonObjects.Common.Change\lEncodingToDefault",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
+  Node2 [label="CommonObjects.Common.Change\lEncoding",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_common_objects_1_1_common.html#a12f8f3c8797f7f21e171a51efbcbb89a",tooltip="Смена кодировки "];
+}

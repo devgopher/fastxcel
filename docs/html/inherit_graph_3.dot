@@ -1,0 +1,11 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
+  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Exception",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
+  Node2 [label="CommonFacilities.SendMail\lException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_common_facilities_1_1_send_mail_exception.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
+  Node3 [label="CommonObjects.SendMailException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_common_objects_1_1_send_mail_exception.html"];
+}

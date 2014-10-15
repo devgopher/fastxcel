@@ -1,0 +1,6 @@
+digraph "fastxcel.Worksheet"
+{
+  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
+  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
+  Node1 [label="{fastxcel.Worksheet\n|+ Contents\l+ Name\l+ XmlPath\l+ Number\l+ ResourceId\l+ SheetId\l|+ Worksheet()\l+ Load()\l+ Load()\l+ Load()\l+ Save()\l+ Save()\l+ GetNewSharedStringNumber()\l+ SetDimensions()\l+ GetDimensions()\l+ GetCellValue()\l+ SetTextCellValue()\l+ SetTextCellValueForRange()\l+ SetRandomCellValuesForRange()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+}
