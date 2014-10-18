@@ -67,9 +67,10 @@ namespace fastxcel
 		
 		public void Save( string xml_file_path ) {
 			xml_fun.FillXmlElements(xml_fun.Document);
-			// Sort...
+			// Sort rows and cells (otherwise, Excel considers a document as corrupted)...
 			xml_fun.SortNodesByAttrIntValue("row", "r");
 			xml_fun.SortNodesByAttrValue("c", "r");
+			xml_fun.Document.InnerXml = xml_fun.Document.InnerXml.Replace("xmlns=\"\"", String.Empty);
 			// Save...
 			xml_fun.SaveDocument();
 		}
@@ -93,10 +94,11 @@ namespace fastxcel
 		}
 		
 		public void Save() {
-			xml_fun.Document.InnerXml = xml_fun.Document.InnerXml.Replace("xmlns=\"\"", String.Empty);
-			// Sort...
+			// Sort rows and cells (otherwise, Excel considers a document as corrupted)...
 			xml_fun.SortNodesByAttrIntValue("row", "r");
 			xml_fun.SortNodesByAttrValue("c", "r", SortExcelCells);
+			// Remove xnlns=\"\"
+			xml_fun.Document.InnerXml = xml_fun.Document.InnerXml.Replace("xmlns=\"\"", String.Empty);
 			// Save...
 			xml_fun.SaveDocument(XmlPath);
 		}
@@ -248,6 +250,7 @@ namespace fastxcel
 			SetTextContentsValue( cell_name, cell_value );
 		}
 		
+		
 		public void SetTextCellValueForRange( string cells_range, string cells_value, bool _mass_value_changing = false ) {
 			
 			List<string> cells = new List<string>();
@@ -265,6 +268,11 @@ namespace fastxcel
 				xml_fun.FillXmlElements( xml_fun.Document );
 		}
 		
+		/// <summary>
+		/// Setting random values for tests
+		/// </summary>
+		/// <param name="cells_range"></param>
+		/// <param name="_mass_value_changing"></param>
 		public void SetRandomCellValuesForRange( string cells_range, bool _mass_value_changing = false ) {
 			Random rand = new Random( DateTime.Now.Millisecond*DateTime.Now.Minute );
 
