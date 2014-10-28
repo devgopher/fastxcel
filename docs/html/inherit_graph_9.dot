@@ -1,9 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
-  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
-  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="FastZip",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
-  Node2 [label="fastxcel.Zip.FastZip",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfastxcel_1_1_zip_1_1_fast_zip.html",tooltip="Description of FastZipExtension. "];
-}

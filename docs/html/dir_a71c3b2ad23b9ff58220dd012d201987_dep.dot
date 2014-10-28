@@ -1,9 +1,0 @@
-digraph "obj/Debug" {
-  compound=true
-  node [ fontsize="10", fontname="FreeSans.ttf"];
-  edge [ labelfontsize="10", labelfontname="FreeSans.ttf"];
-  subgraph clusterdir_43724e81dd40e09f32417973865cdd64 {
-    graph [ bgcolor="#ddddee", pencolor="black", label="obj" fontname="FreeSans.ttf", fontsize="10", URL="dir_43724e81dd40e09f32417973865cdd64.html"]
-  dir_a71c3b2ad23b9ff58220dd012d201987 [shape=box, label="Debug", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_a71c3b2ad23b9ff58220dd012d201987.html"];
-  }
-}

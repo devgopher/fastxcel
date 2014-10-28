@@ -1,6 +1,0 @@
-digraph "AmusingXml.XmlFun"
-{
-  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
-  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
-  Node1 [label="{AmusingXml.XmlFun\n|+ Document\l+ XmlElements\l|+ XmlFun()\l+ CreateDocument()\l+ CreateDocument()\l+ SaveDocument()\l+ _SortFunc()\l+ FillXmlElements()\l+ FillXmlElements()\l+ SortNodesByAttrValue()\l+ NodeSortFunc()\l+ SortNodesByAttrValue()\land 12 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-}

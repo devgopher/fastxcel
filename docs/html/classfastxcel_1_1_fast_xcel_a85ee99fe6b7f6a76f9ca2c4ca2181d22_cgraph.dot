@@ -1,9 +1,0 @@
-digraph "fastxcel.FastXcel.Save"
-{
-  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
-  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="fastxcel.FastXcel.Save",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans.ttf"];
-  Node2 [label="fastxcel.Worksheet.Save",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfastxcel_1_1_worksheet.html#a8d4ae885f06c8bd2eff1e567df430395"];
-}

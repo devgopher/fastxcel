@@ -1,6 +1,0 @@
-digraph "CommonObjects.Common.ParameterDictionary&lt; T_key, T_val &gt;"
-{
-  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
-  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
-  Node1 [label="{CommonObjects.Common.Parameter\lDictionary\< T_key, T_val \>\n|+ this[T_key key]\l|+ ParameterDictionary()\l+ GetEnumerator()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-}

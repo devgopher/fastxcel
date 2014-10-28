@@ -1,7 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
-  edge [fontname="FreeSans.ttf",fontsize="10",labelfontname="FreeSans.ttf",labelfontsize="10"];
-  node [fontname="FreeSans.ttf",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="fastxcel.Worksheet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfastxcel_1_1_worksheet.html",tooltip="Description of Worksheet. "];
-}
