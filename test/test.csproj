@@ -53,14 +53,14 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\fastxcel\fastxcel.csproj">
+    <Content Include="ProfilingSessions\Session20140901_144845.sdps" />
+    <Content Include="ProfilingSessions\Session20140901_150946.sdps" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\fastxcel.csproj">
       <Project>{748AB3C2-09D7-409A-8BD0-8387E72EB242}</Project>
       <Name>fastxcel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ProfilingSessions\Session20140901_144845.sdps" />
-    <Content Include="ProfilingSessions\Session20140901_150946.sdps" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

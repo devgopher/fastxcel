@@ -114,9 +114,10 @@ namespace AmusingXml
 			FillXmlElements( xml_document );
 		}
 		
-		public void SaveDocument( string path = null ) {
-			xml_document.Save( path );
+		public void SaveDocument( string new_path = null ) {
+			xml_document.Save( new_path );
 		}
+		
 		
 		public int _SortFunc( XmlElement x1, XmlElement x2 ) {
 			try {
@@ -236,11 +237,17 @@ namespace AmusingXml
 			
 			if ( row_nodes.Count > 0 ) {
 				row_nodes.Sort( (XmlElement el1, XmlElement el2) => {
-				               	if (int.Parse(el1.Attributes[attr_name].Value) > int.Parse(el2.Attributes[attr_name].Value)) {
-				               		return 1;
-				               	} else
-				               		return -1;
-				               } );
+				               	try {
+				               		if (int.Parse(el1.Attributes[attr_name].Value) == int.Parse(el2.Attributes[attr_name].Value))
+				               			return 0;
+				               		else if (int.Parse(el1.Attributes[attr_name].Value) > int.Parse(el2.Attributes[attr_name].Value))
+				               			return 1;
+				               		else
+				               			return -1;
+				               	} catch ( Exception ex ) {
+				               		return int.MinValue;
+				               	}
+				               }	);
 				// удаляем узлы, упорядоченные по-старому...
 				foreach ( XmlNode subn in global_parent.ChildNodes )
 					global_parent.RemoveChild(subn);
@@ -268,13 +275,19 @@ namespace AmusingXml
 		/// <param name="inner_text"></param>
 		/// <param name="parent_node"></param>
 		public XmlElement CreateElement( string name, Dictionary<string, string> attributes,
-		                             string inner_text, XmlElement parent_element ) {
+		                                string inner_text, XmlElement parent_element ) {
 			try{
 				XmlElement node = xml_document.CreateElement(name);
 				// пройдемся по аттрибутам...
 				if (attributes != null) {
 					foreach ( KeyValuePair<string, string>param in attributes ) {
-						XmlAttribute attrib = xml_document.CreateAttribute(param.Key);
+						XmlAttribute attrib = null;
+						if ( param.Key.IndexOf(":")>0 )
+						{
+							attrib = xml_document.CreateAttribute(param.Key.Substring(0, param.Key.IndexOf(":")),
+							                                      param.Key.Substring(param.Key.IndexOf(":")+1, param.Key.Length-param.Key.IndexOf(":")-1));
+						} else
+							attrib = xml_document.CreateAttribute(param.Key);
 						attrib.InnerText = param.Value.ToString();
 						node.Attributes.Append(attrib);
 					}
@@ -282,6 +295,40 @@ namespace AmusingXml
 				node.InnerText = inner_text;
 				parent_element.AppendChild(node);
 				XmlElements.Add(node);
+				return node;
+			} catch (XmlException ex) {
+				throw new XmlFunException(ex.Message);
+			}
+		}
+		
+		/// <summary>
+		/// Создаем узел с аттрибутами
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="attributes"></param>
+		/// <param name="inner_text"></param>
+		/// <param name="parent_node"></param>
+		public XmlNode CreateNode( string name, Dictionary<string, string> attributes,
+		                          string inner_text, XmlNode parent_node ) {
+			try{
+				XmlNode node = xml_document.CreateNode(XmlNodeType.Element, name, String.Empty);
+				// пройдемся по аттрибутам...
+				if (attributes != null) {
+					foreach ( KeyValuePair<string, string>param in attributes ) {
+						XmlAttribute attrib = null;
+						if ( param.Key.IndexOf(":")>0 )
+						{
+							attrib = xml_document.CreateAttribute(param.Key, "special_ns");
+						} else
+							attrib = xml_document.CreateAttribute(param.Key);
+						attrib.InnerText = param.Value.ToString();
+						node.Attributes.Append(attrib);
+					}
+				}
+				node.InnerText = inner_text;
+				parent_node.AppendChild(node);
+				
+				XmlElements.Add((XmlElement)node);
 				return node;
 			} catch (XmlException ex) {
 				throw new XmlFunException(ex.Message);
@@ -310,7 +357,15 @@ namespace AmusingXml
 		
 		public List<ExtXmlNode> ExtFindNodes( string name, Dictionary<string, string> attributes = null) {
 			List<ExtXmlNode> result_nodes = new List<ExtXmlNode>();
-			List<XmlElement> tmp_nodes = FindNodes( attributes );
+			List<XmlElement> tmp_nodes = null;
+			if ( attributes != null ) {
+				if ( attributes.Count > 0 ) {
+					tmp_nodes = FindNodes( attributes );
+				}	else {
+					tmp_nodes = XmlElements;
+				}
+			} else
+				tmp_nodes = XmlElements;
 			
 			Parallel.ForEach( tmp_nodes, parallel_options, (el, loop_state) => {
 			                 	if ( el.Name == name ) {
@@ -324,9 +379,17 @@ namespace AmusingXml
 		
 		public List<XmlElement> FindNodes( string name, Dictionary<string, string> attributes = null) {
 			List<XmlElement> result_nodes = new List<XmlElement>();
-			List<XmlElement> tmp_nodes = FindNodes( attributes );
+			List<XmlElement> tmp_nodes = null;
+			if ( attributes != null ) {
+				if ( attributes.Count > 0 ) {
+					tmp_nodes = FindNodes( attributes );
+				}	else {
+					tmp_nodes = XmlElements;
+				}
+			} else
+				tmp_nodes = XmlElements;
 			
-			Parallel.ForEach( XmlElements, parallel_options, (el, loop_state) => {
+			Parallel.ForEach( tmp_nodes, parallel_options, (el, loop_state) => {
 			                 	if ( el.Name == name ) {
 			                 		lock (result_nodes) {
 			                 			result_nodes.Add(el);
@@ -402,12 +465,18 @@ namespace AmusingXml
 				XmlElement ret = null;
 				Parallel.ForEach( XmlElements, parallel_options, (el, loop_state) => {
 				                 	if ( el.Name == name ) {
-				                 		bool decision = true; // Проверяем все параметры и если они все совпадают, то true
-				                 		SearchNodes(el, ref decision, attributes, true);
-				                 		// Если решение положительно (полное совпадение по условиям), то добавляем узел в результат
-				                 		if (decision == true) {
-				                 			ret = el;
-				                 			loop_state.Break();
+				                 		if ( attributes != null ) {
+				                 			if ( attributes.Count > 0 ) {
+				                 				bool decision = true; // Проверяем все параметры и если они все совпадают, то true
+				                 				SearchNodes(el, ref decision, attributes, true);
+				                 				// Если решение положительно (полное совпадение по условиям), то добавляем узел в результат
+				                 				if (decision == true) {
+				                 					ret = el;
+				                 					loop_state.Break();
+				                 				} else
+				                 					ret = el;
+				                 			} else
+				                 				ret = el;
 				                 		}
 				                 	}
 				                 } );
@@ -446,10 +515,12 @@ namespace AmusingXml
 		/// <param name="filename"></param>
 		public void LoadDocument( string filename ) {
 			try {
+				XmlTextReader xmlreader = new XmlTextReader( File.Open( filename, FileMode.Open ));
 				xml_document = new XmlDocument();
-				xml_document.Load(filename);
+				xml_document.Load( xmlreader );
 				XmlElements.Clear();
 				FillXmlElements( xml_document );
+				xmlreader.Close();
 			} catch ( XmlException ex ) {
 				throw new XmlFunException(ex.Message);
 			}
@@ -495,10 +566,12 @@ namespace AmusingXml
 			}
 		}
 
-		public XmlDocument Document{get {return xml_document;}}
+		
+		public XmlDocument Document{get {return xml_document;} private set {xml_document = value;}}
 		
 		public List<XmlElement> XmlElements{get;set;}
 		
 		private XmlDocument xml_document;
+		
 	}
 }

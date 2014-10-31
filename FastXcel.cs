@@ -116,7 +116,7 @@ namespace fastxcel
 				bw.Close();
 				
 				Open( file_path );
-			
+				
 			} catch ( Exception ex ) {
 				throw new FastXcelException(ex.Message, ex);
 			}
@@ -125,8 +125,8 @@ namespace fastxcel
 		public void Save( string file_path ) {
 			try {
 				Console.WriteLine("fastxcel: saving "+file_path);
+			
 				
-	
 				// save xml_shared_Strings...
 				SaveSharedStrings();
 				
@@ -134,7 +134,8 @@ namespace fastxcel
 				foreach ( Worksheet wrk in Worksheets ) {
 					wrk.Save();
 				}
-				
+
+				//Utils.FileUtils.ReplaceInFile( temp_path + "\\xl\\workbook.xml","\"id\"", "\"r:id\"" );
 				Compress( file_path );
 			} catch ( Exception ex ) {
 				throw new FastXcelException( ex.Message, ex );
@@ -236,6 +237,7 @@ namespace fastxcel
 		
 		private void ProcessWorksheets() {
 			try {
+				Worksheets.Clear();
 				string[] xl_sheet_files = Directory.GetFiles(temp_path+"\\xl\\worksheets\\", "sheet*.xml");
 				
 				foreach ( string sheet_file in xl_sheet_files ) {
@@ -251,6 +253,111 @@ namespace fastxcel
 				}
 			} catch ( Exception ex ) {
 				throw new FastXcelException( "Error processing worksheets", ex );
+			}
+		}
+		
+		public short NewWorksheet( string name = "" ) {
+			try {
+				
+				System.Resources.ResourceManager resourceManager =
+					new System.Resources.ResourceManager("fastxcel.Resource", GetType().Assembly);
+				
+				
+				var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+				
+				short new_ws_number = (short)(Worksheets.Count+1);
+				string res_id = "Re";
+				
+				Worksheet new_wrk = new Worksheet( shared_strings );
+				
+				if ( name == String.Empty )
+					name = "Worksheet"+Worksheets.Count.ToString();
+				
+				// First of all - create new xml file
+				int num = 1;
+				while ( File.Exists(temp_path+"\\xl\\worksheets\\sheet"+num.ToString()+".xml") )
+					++num;
+				string new_file_path = temp_path+"\\xl\\worksheets\\sheet"+num.ToString()+".xml";
+				string resource_path = assembly.GetName().Name+".Resources.sheet_xml";
+				
+				BinaryReader br = new BinaryReader(assembly.GetManifestResourceStream(resource_path));
+				long file_length = assembly.GetManifestResourceStream(resource_path).Length;
+				byte[] inners = new byte[file_length];
+				inners = br.ReadBytes((int)file_length);
+				
+				br.Close();
+
+				FileStream fs = File.Create( new_file_path );
+				BinaryWriter bw = new BinaryWriter( fs );
+				
+				bw.Write(inners);
+				bw.Close();
+
+				
+				// Register relationship
+				int res_id_num = xml_wb_rels.XmlElements.Count;
+				
+				AddNewRelationship(num, "rId" + res_id_num.ToString(), "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet");
+				
+				// Add into workbook.xml
+				AddSheetInWorkbook( "rId" + res_id_num.ToString(), name, new_ws_number );
+				
+				// Finally
+				new_wrk.Load( new_file_path, shared_strings );
+
+				Worksheets.Add( new_wrk );
+				
+				return new_ws_number;
+			} catch ( Exception ex ) {
+				throw new FastXcelException( "Can't create new worksheet"+ex.Message, ex );
+			}
+			
+		}
+		
+		void AddSheetInWorkbook( string res_id, string ws_name, short sheet_number ) {
+			Dictionary<string, string> attrs = new Dictionary<string, string>();
+			attrs["name"] = ws_name;
+			attrs["r:id"] = res_id;
+			attrs["sheetId"] = sheet_number.ToString();
+			xml_workbook.FillXmlElements(xml_workbook.Document);
+			XmlElement sheets = xml_workbook.FindFirstNode("sheets", new Dictionary<string, string>());
+
+			var new_el = xml_workbook.CreateNode("sheet", attrs, String.Empty, sheets);
+			
+			
+			xml_workbook.Document.InnerXml = xml_workbook.Document.InnerXml.Replace("xmlns=\"\"", String.Empty).Replace("xmlns:r=\"special_ns\"", String.Empty);
+			xml_workbook.SaveDocument(temp_path + "\\xl\\workbook.xml");
+		}
+		
+		void AddNewRelationship(int res_number, string res_id, string res_type)
+		{
+			Dictionary<string, string> attrs = new Dictionary<string, string>();
+			attrs["Id"] = res_id;
+			attrs["Type"] = res_type;
+			attrs["Target"] = "worksheets/sheet" + res_number.ToString() + ".xml";
+			XmlElement relships = xml_wb_rels.FindFirstNode("Relationships", new Dictionary<string, string>());
+			xml_wb_rels.CreateElement("Relationship", attrs, String.Empty, relships);
+			xml_wb_rels.Document.InnerXml = xml_wb_rels.Document.InnerXml.Replace("xmlns=\"\"", String.Empty);
+			xml_wb_rels.SaveDocument(temp_path + "\\xl\\_rels\\workbook.xml.rels");
+		}
+		
+		private void CloseDC() {
+			try {
+				Worksheets.Clear();
+				xml_sheets.Clear();
+				shared_strings.Clear();
+				
+
+				
+				xml_workbook = null;
+				xml_wb_rels = null;
+				xml_shared_strings = null;
+				
+				GC.Collect();
+				GC.WaitForPendingFinalizers();
+
+			} catch ( Exception ex ) {
+				throw new FastXcelException( "Error closing a document", ex );
 			}
 		}
 		

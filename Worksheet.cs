@@ -56,6 +56,7 @@ namespace fastxcel
 		public void Load( string _resource_id, short _sheet_id, string name, string xml_path, Dictionary<int, string> shared_strings )
 		{
 			XmlPath = xml_path;
+			
 			xml_fun.LoadDocument( xml_path );
 			LoadData();
 			SheetId = _sheet_id;
@@ -94,11 +95,13 @@ namespace fastxcel
 		}
 		
 		public void Save() {
+			xml_fun.FillXmlElements( xml_fun.Document );
 			// Sort rows and cells (otherwise, Excel considers a document as corrupted)...
 			xml_fun.SortNodesByAttrIntValue("row", "r");
 			xml_fun.SortNodesByAttrValue("c", "r", SortExcelCells);
 			// Remove xnlns=\"\"
 			xml_fun.Document.InnerXml = xml_fun.Document.InnerXml.Replace("xmlns=\"\"", String.Empty);
+
 			// Save...
 			xml_fun.SaveDocument(XmlPath);
 		}
@@ -152,7 +155,8 @@ namespace fastxcel
 			old_cell_attrs.Add("r", _search_term);
 			XmlNode old_cell_node = xml_fun.FindFirstNode( "c", old_cell_attrs);
 			if ( old_cell_node != null )
-				old_cell_node.ParentNode.RemoveChild(old_cell_node);
+				if ( old_cell_node.ParentNode != null )
+					old_cell_node.ParentNode.RemoveChild(old_cell_node);
 			
 			// check if this row already exists
 			Dictionary<string,string> chk_rows_attrs = new Dictionary<string, string>();
@@ -274,7 +278,7 @@ namespace fastxcel
 		/// <param name="cells_range"></param>
 		/// <param name="_mass_value_changing"></param>
 		public void SetRandomCellValuesForRange( string cells_range, bool _mass_value_changing = false ) {
-			Random rand = new Random( DateTime.Now.Millisecond*DateTime.Now.Minute );
+			Random rand = new Random( DateTime.Now.Millisecond*DateTime.Now.Minute+DateTime.Today.Year );
 
 			List<string> cells = GetCellsInRange( cells_range );
 			int cnt_2 = (int)(Math.Truncate((double)(cells.Count()/2)));
